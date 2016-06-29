@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/gijsvantil/InTheBuilding/issues"
   },
-  "homepage": "https://github.com/gijsvantil/InTheBuilding#readme"
+  "homepage": "https://github.com/gijsvantil/InTheBuilding#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.13.0",
+    "passport": "^0.3.2",
+    "pg": "^6.0.1",
+    "pug": "^2.0.0-beta3",
+    "sequelize": "^3.23.4"
+  }
 }
