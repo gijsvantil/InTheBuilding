@@ -1,0 +1,19 @@
+{
+  "name": "inthebuilding",
+  "version": "1.0.0",
+  "description": "An webapp that connects workers in shared working spaces with eachother",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gijsvantil/InTheBuilding.git"
+  },
+  "author": "G. van Til",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gijsvantil/InTheBuilding/issues"
+  },
+  "homepage": "https://github.com/gijsvantil/InTheBuilding#readme"
+}
