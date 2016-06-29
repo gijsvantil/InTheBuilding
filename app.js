@@ -25,11 +25,11 @@ app.use(session({
 	saveUninitialized: false
 }));
 
-// PASSPORT
-app.use(passport.initialize());
-app.use(passport.session());
-const initPassport = require('./passport/init');
-initPassport(passport);
+// // PASSPORT
+// app.use(passport.initialize());
+// app.use(passport.session());
+// const initPassport = require('./passport/init');
+// initPassport(passport);
 
  // Using the flash middleware provided by connect-flash to store messages in session
  // and displaying in templates
