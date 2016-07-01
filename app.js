@@ -17,7 +17,7 @@ app.set('view engine', 'pug');
 // BodyParser setup
 app.use(bodyParser.urlencoded({extended: true}))
 // Static folder
-app.use(express.static('./public/'));
+app.use(express.static(__dirname + '/public')); 
 // Initializing session
 app.use(session({
 	secret: 'I solemny swear that I am up to know good',
@@ -25,11 +25,11 @@ app.use(session({
 	saveUninitialized: false
 }));
 
-// // PASSPORT
-// app.use(passport.initialize());
-// app.use(passport.session());
-// const initPassport = require('./passport/init');
-// initPassport(passport);
+// PASSPORT
+app.use(passport.initialize());
+app.use(passport.session());
+const initPassport = require('./passport/init');
+initPassport(passport);
 
  // Using the flash middleware provided by connect-flash to store messages in session
  // and displaying in templates
@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// Server listens on port 3000
-const server = app.listen(3000, function (){
+// Server listens on port 4000
+const server = app.listen(4000, function (){
 	console.log ('In The Building listening on: ' + server.address().port)
 });
