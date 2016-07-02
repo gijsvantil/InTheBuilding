@@ -2,16 +2,18 @@ const login = require('./login');
 const signup = require('./signup');
 const db = require('../models/database');
 
-module.exports = function(passport){
+module.exports = (passport) => {
     // Serialize sessions
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser( (user, done) => {
         done(null, user.id);
     });
 
-    passport.deserializeUser(function(id, done) {
-        db.coworker.find({where: {id: id}}).then(
-            function(user){ done(null, user) },
-            function(err){ done(err, null) }
+    passport.deserializeUser( (id, done) => {
+        console.log(id)
+        db.coworker.find({where: {id: id}
+    }).then(
+            (user) => { done(null, user) }, 
+            (err) => { done(err, null) }
         );
     });
 

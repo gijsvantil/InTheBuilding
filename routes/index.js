@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/database');
+const Sequelize = require('sequelize');
+
 
 let isAuthenticated = (req, res, next) => {
 	// if user is authenticated in the session, call the next() to call the next request handler 
@@ -37,9 +39,27 @@ module.exports = (passport) => {
 		failureFlash : true , 
 	}));
 
-// GET that listens on '/home' and renders the full version of the home page
+// GET that listens on '/home' and renders the home page
 	router.get('/home', isAuthenticated, function(req, res){
+		console.log(req.session.passport.user)
 		res.render('home', { user: req.user });
+	});
+// POST that listens on '/post' and saves a post to the database
+	router.post('/post', isAuthenticated, (req,res)=>{
+		console.log(req.user.id)
+		db.coworker.findOne({
+			where: {
+				id: req.user.id
+			}
+		}).then((user) => {
+			user.update({
+				location: req.body.location
+			}),
+			user.createPost({
+				body: req.body.body
+			});
+		});
+		res.redirect("/home")
 	});
 
 // GET that listens on '/signout' and destroys session then redirects to '/'
