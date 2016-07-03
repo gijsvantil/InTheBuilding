@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// Server listens on port 4000
-const server = app.listen(4000, function (){
+// Server listens on port 3000
+const server = app.listen(3000, function (){
 	console.log ('In The Building listening on: ' + server.address().port)
 });

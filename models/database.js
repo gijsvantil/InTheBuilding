@@ -23,7 +23,8 @@ db.coworker = db.conn.define( 'coworker', {
 });
 
 db.post = db.conn.define ('post',{
-	body: Sequelize.TEXT
+	body: Sequelize.TEXT,
+	location: Sequelize.TEXT
 });
 
 db.comment = db.conn.define ('comment',{
