@@ -16,10 +16,16 @@ let isAuthenticated = (req, res, next) => {
 
 module.exports = (passport) => {
 
-// GET that listens on '/' and renders the index page
+// GET that listens on '/' and renders the landing page
 router.get('/', (req, res) => {
+	res.render('landing');
+});
+
+// GET that listens on '/' and renders the index page with login form
+router.get('/login', (req, res) => {
 	res.render('index');
 });
+
 // POST that listens on '/login'
 router.post('/login', passport.authenticate('login', {
 	successRedirect: '/home',

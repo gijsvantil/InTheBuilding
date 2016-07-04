@@ -6,13 +6,25 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const Sequelize = require('sequelize');
 const session = require('express-session');
-
+const sass = require ('node-sass');
+const fs = require ('fs');
 // requiring database module
 const db = require('./models/database');
 
 /// Setting PUG as view engine
 app.set('views', './views');
 app.set('view engine', 'pug');
+
+// Compiling SCSS into CSS file
+sass.render( {
+    file: './public/css/scss/styles.scss'
+}, (err, result) => { 
+    console.log(result, err)
+    fs.writeFile( './public/css/styles.css', result.css.toString(), ( err ) => {
+        if ( err ) throw err
+            console.log( 'Sass written to css' )
+    });
+});
 
 // BodyParser setup
 app.use(bodyParser.urlencoded({extended: true}))

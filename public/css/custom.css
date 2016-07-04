@@ -1,92 +1,84 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+    min-height: 100%;
+}
+
+h1{
+    color:white;
 }
 
 a {
-  color: #00B7FF;
+  color: white;
 }
 
-.form-signin{
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+/*LANDING*/
+.ui.inverted.segment{
+    padding-top:45px;
+    background-color:#1B1C1D;
+    min-height:700px;
+    border: none;
+    box-shadow: none;
 }
-.form-signin .form-signin-heading, .form-signin .checkbox{
-    margin-bottom: 10px;
+
+.ui.container {
+    display: block;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
-.form-signin .checkbox{
-    font-weight: normal;
+
+.left.item{
+    float:left;
 }
-.form-signin .form-control{
+
+.left.item h1{
+    font-size: 2.5em;
+    border-bottom: 2px solid white;
+}
+
+.right.item{
+    float:right;
+}
+
+.ui.text.container{
+    margin-top:8em;
+}
+ 
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.videoWrapper iframe {
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*LOGIN & SIGNUP*/
+
+.column{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:8em;
+    max-width: 400px;
+    min-height: 45%;
+}
+
+input.ui.input.focus{
+    margin: 10px !important;
+}
+
+button
+
+.column .form-control{
     position: relative;
     font-size: 16px;
-    height: auto;
     padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
-.form-signin .form-control:focus{
-    z-index: 2;
-}
-.form-signin input[type="text"]{
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.form-signin input[type="password"]{
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.form-signin input[type="password"].nomargin{
-	margin-bottom: 0px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
-.account-wall{
-    margin-top: 20px;
-    padding: 40px 0px 20px 0px;
-    background-color: #f7f7f7;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
-.signup-wall{
-	margin-top: 20px;
-    padding: 20px 0px 20px 0px;
-    background-color: #f7f7f7;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);	
-}
-.login-title{
-    color: #555;
-    font-size: 18px;
-    font-weight: 400;
-    display: block;
-}
-.profile-img{
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 10px;
-    display: block;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-textarea{
-    resize:none;
-    box-sizing:border-box
-}
-.new-account{
-    display: block;
-    margin-top: 10px;
-}
-h1.error-message{
-    color: red;
-}
-ul.user-details{
-    list-style: none;
 }

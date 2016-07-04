@@ -1,0 +1,54 @@
+body {
+  min-height: 100%; }
+  body h1 {
+    color: white; }
+  body a {
+    color: white; }
+  body .ui.container {
+    display: block;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important; }
+  body .ui.inverted.segment {
+    padding-top: 45px;
+    background-color: #1B1C1D;
+    min-height: 700px;
+    border: none;
+    box-shadow: none; }
+  body .left.item {
+    float: left; }
+    body .left.item h1 {
+      font-size: 2.5em;
+      border-bottom: 2px solid white; }
+  body .right.item {
+    float: right; }
+  body .ui.text.container {
+    margin-top: 8em; }
+    body .ui.text.container .videoWrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      padding-top: 25px;
+      height: 0; }
+      body .ui.text.container .videoWrapper iframe {
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; }
+  body .column {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8em;
+    max-width: 400px;
+    min-height: 45%; }
+    body .column .column .form-control {
+      position: relative;
+      font-size: 16px;
+      padding: 10px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+  body input.ui.input.focus {
+    margin: 10px !important; }

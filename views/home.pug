@@ -1,6 +1,14 @@
 extends layout
 
 block content
+	div(class="ui inverted vertical masthead center aligned segment")
+		div(class="ui container")
+			div(class=".ui.secondary.inverted.pointing.menu")
+				div(class="left item")
+					h1 IN THE BUILDING
+				div(class="right item")
+					a(href="/#", class="ui inverted button") Account
+					a(href="/signout", class="ui inverted button") Log out
 	div.container
 		div.row
 			div.col-sm-6.col-md-4.col-md-offset-0
@@ -24,19 +32,14 @@ block content
 				
 				each post in posts		
 					div.signup-wall
-						p(style='display:none' class='id')=post.id
 						p=post.time
 						p=post.location
 						p=post.body
 						p=post.coworker.dataValues.firstname
-						p(class="hello")
-							a(href='#')
-								b Leave a comment
 
-								div.comment()
-								form(class='form-signin', action='/comment', method='POST')
-									textarea(type='text', name='comment' class='form-control', rows="5", placeholder='Leave a comment')
-									input#postid.form-control(type="hidden", name="postid", value=post.id)
-									button(class='btn btn-lg btn-primary btn-block', type='submit') Submit
+					p(class="hello")
+						b Leave a comment
+						div.comment(style='display:none')
+							textarea(type='text', name='body' class='form-control', rows="5", placeholder='Leave a comment',required, autofocus)
 
 				
