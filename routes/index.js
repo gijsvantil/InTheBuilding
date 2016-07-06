@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
 // POST that listens on '/login'
 router.post('/login', passport.authenticate('login', {
 	successRedirect: '/home',
-	failureRedirect: '/',
+	failureRedirect: '/login',
 	failureFlash : true  
 }));
 
@@ -54,7 +54,7 @@ router.get('/home', isAuthenticated, (req, res) => {
 			return {
 				id: post.dataValues.id,
 				body: post.dataValues.body,
-				time: time,
+				time: post.dataValues.createdAt,
 				location: post.dataValues.location,
 				coworker: post.dataValues.coworker,
 			}	

@@ -5,18 +5,19 @@ block content
 		div(class="ui container")
 			div(class=".ui.secondary.inverted.pointing.menu")
 				div(class="left item")
-					h1 IN THE BUILDING
+					h1 
+						a(href="/") IN THE BUILDING
 				div(class="right item")
 					a(href="/login", class="ui inverted button") Log in
 					a(href="/signup", class="ui inverted button") Sign up
 		div(class="ui center aligned")
 			div(class="center aligned column")
 						form(class='ui form', action='/signup', method='POST')
-							input(type='text', placeholder='firstname', name='firstname', class='ui input focus', required, autofocus)
-							input(type='text', placeholder='lastname', name='lastname', class='ui input focus', required)
-							input(type='text', placeholder='email', name='username', class='ui input focus', required)
-							input(type='text', placeholder='password', name='password', class='ui input focus', required)
-							input(type='text', placeholder='location', name='location', class='ui input focus', required)
+							input(type='text', placeholder='Firstname', name='firstname', class='ui input focus', required)
+							input(type='text', placeholder='Lastname', name='lastname', class='ui input focus', required)
+							input(type='text', placeholder='Email', name='username', class='ui input focus', required)
+							input(type='text', placeholder='Password', name='password', class='ui input focus', required)
+							input(type='text', placeholder='Location', name='location', class='ui input focus', required)
 							button(class='ui button inverted', type='submit') Register
 		#message
 			if message

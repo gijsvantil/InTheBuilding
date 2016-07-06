@@ -1,10 +1,14 @@
 body{
-    min-height: 100%;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
 }
 
 h1{
     color:white;
-}
+}   
 
 a {
   color: white;
@@ -81,4 +85,80 @@ button
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+/*HOME*/
+
+.row{
+    margin-top:40px;
+}
+.four.wide.column{
+    overflow-y: scroll;
+    border: 2px solid white;
+    border-radius: 6px;
+    margin: px;
+    height:500px;
+    min-width:33%;
+}
+
+.four.wide.column.double{
+    margin: 1px;
+    border:none;
+    min-width:33%;
+}
+
+.segment{
+    overflow-y: scroll;
+    border: 2px solid white;
+    border-radius: 6px;
+    height:250px;
+    min-width: 33%;
+}
+
+.logo{
+    position:fixed;
+    margin:0 auto;
+}
+
+.title{
+    border-bottom: 1px solid white;
+}
+
+.segment.one{
+    margin-bottom:50px;
+    height:200px;
+    min-width: 100%;
+}
+
+.segment.two{
+    min-width: 100%;
+ 
+}
+
+.logo{
+    position:relative;
+    height: 35px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.content{
+    top:35px;
+    overflow-y: scroll;
+}
+
+.instagram.icon{
+    margin-top:10px;
+    color: white;
+    font-size: 2em;
+}
+
+.instaphoto img{
+    width:50%;
+}
+.twitter.icon{
+    margin-top:10px;
+    color: white;
+    font-size: 2em;
 }

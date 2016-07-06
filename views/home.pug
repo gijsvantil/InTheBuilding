@@ -4,42 +4,59 @@ block content
 	div(class="ui inverted vertical masthead center aligned segment")
 		div(class="ui container")
 			div(class=".ui.secondary.inverted.pointing.menu")
-				div(class="left item")
+				div.left.item
 					h1 IN THE BUILDING
-				div(class="right item")
+				div.right.item
 					a(href="/#", class="ui inverted button") Account
 					a(href="/signout", class="ui inverted button") Log out
-	div.container
-		div.row
-			div.col-sm-6.col-md-4.col-md-offset-0
-				#user
-					h1.text-center.login-title Welcome #{user.firstname}. Check your details below:
-						div.signup-wall
-							ul.user-details
-								li Email    ---> #{user.email}
-								li First Name ---> #{user.firstname} 
-								li Last Name ---> #{user.lastname}
-								li Location ---> #{user.location}
-						a(href='/signout', class='text-center new-account') Sign Out
-			div.col-sm-6.col-md-4.col-md-offset-0
-				button(id='helpmeout' class='btn btn-lg btn-primary btn-block', type='submit') HELP ME OUT
-				div.postbox(style='display: none;')
-					form(class='form-signin', action='/post', method='POST')
-						textarea(type='text', name='body' class='form-control', rows="5", placeholder='I am looking for someone who can help me with ...',required, autofocus)
-						h5 Location:
-						input(type='location', name='location' class='form-control', placeholder=user.location , required)
-						button(class='btn btn-lg btn-primary btn-block', type='submit') Submit
-				
-				each post in posts		
-					div.signup-wall
-						p=post.time
-						p=post.location
-						p=post.body
-						p=post.coworker.dataValues.firstname
+			.div
+			div.ui.middle.aligned.stackable.grid.container
+				.row
+					.four.wide.column
+					.four.wide.column
+						.ui.inverted.accordion
+							.title
+								button.ui.inverted.button HELP ME OUT
+								//- i.dropdown.icon
+								//- |       HELP ME OUT	
+							.content
+								form.ui.form(action='/post', method='POST')
+									.field
+										textarea(type='text', name='body', rows="8", placeholder='I am looking for someone who can help me with ...',required, autofocus)
+									.field.inverted 
+									label Location:
+										input.ui.input(type='location', name='location', placeholder=user.location , required)
+									button.ui.inverted.button(type='submit') Submit
+							.my-content-class
+								each post in posts	
+									.signup-wall
+										p=post.coworker.dataValues.firstname
+										p=post.time
+										p=post.location
+										p=post.body
+										.hello
+											b Leave a comment
+											.comment(style='display:none')
+											form.ui.form(action='/comment', method='POST')
+											.field
+												textarea(type='text', name='body', rows="5", placeholder='Leave a comment',required, autofocus)
+												button.ui.inverted.button(type='submit') Submit
+					.four.wide.column.double
+						.segment.one
+							.logo
+								i.instagram.icon
+							.content
+								.instaphoto
+						.segment.two
+							.logo
+								i.twitter.icon
+								a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=BAmsterdam', data-show-count='false') Tweet #BAmsterdam
+								script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
+							a.twitter-timeline(href='https://twitter.com/search?q=%23BAmsterdam%20OR%20%40B_Amsterdam', data-widget-id='750423133094551552',data-chrome="noheader nofooter transparent",data-limit-tweet="50") Tweets over #BAmsterdam
+							script.
+								!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs")
+        
 
 					p(class="hello")
-						b Leave a comment
 						div.comment(style='display:none')
 							textarea(type='text', name='body' class='form-control', rows="5", placeholder='Leave a comment',required, autofocus)
-
-				

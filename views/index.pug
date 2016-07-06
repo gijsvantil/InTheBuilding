@@ -15,6 +15,9 @@ block content
 					input(type='text', name='username' class='ui input focus', placeholder='Email address',required)
 					input(type='password', name='password' class='ui input focus', placeholder='Password', required)
 					button(class="ui button inverted", type='submit') Sign in
-			#message
-				if message
-					h1.text-center.error-message #{message}
+				#message
+					if message
+						h1.text-center.error-message #{message}
+	a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=poeha', data-show-count='false') Tweet poeha
+	script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
+
