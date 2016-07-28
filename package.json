@@ -2,7 +2,10 @@
   "name": "inthebuilding",
   "version": "1.0.0",
   "description": "An webapp that connects workers in shared working spaces with eachother",
-  "main": "app.js",
+  "engines": {
+    "node": "6.0.0"
+  },
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,7 +34,6 @@
     "passport-local": "^1.0.0",
     "pg": "^6.0.1",
     "pug": "^2.0.0-beta3",
-    "semantic-ui": "^2.2.1",
     "sequelize": "^3.23.4"
   }
 }
