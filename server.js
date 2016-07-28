@@ -61,6 +61,6 @@ app.use(function(req, res, next) {
 });
 
 // Server listens on port 3000
-const server = app.listen(3000, function (){
+const server = app.listen(process.env.PORT || 3000, function (){
 	console.log ('In The Building listening on: ' + server.address().port)
 });
