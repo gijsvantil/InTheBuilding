@@ -30,7 +30,7 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('login', {
 	successRedirect: '/home',
 	failureRedirect: '/login',
-	failureFlash : true  
+	failureFlash : true
 }));
 
 // GET that listens on '/signup' and renders the register page
@@ -41,22 +41,26 @@ router.get('/signup', (req, res) =>{
 // POST that listens on '/signup'
 router.post('/signup', passport.authenticate('signup', {
 	successRedirect: '/home',
-	failureRedirect: '/',
+	failureRedirect: '/signup',
 	failureFlash : true , 
 }));
 // GET that listens on '/home' and renders the home page
 router.get('/home', isAuthenticated, (req, res) => {
 	db.post.findAll({
-		include: [db.coworker]
+		include: [db.coworker, {model: db.comment, include: [db.coworker] }]
 	}).then((posts)=>{
+		// console.log(posts[0].dataValues.comments)
 		let post =posts.map((post) => {
-			let time = moment().format()
+			let posttime=post.dataValues.createdAt
+			let commenttime=post.dataValues.comments.createdAt
 			return {
 				id: post.dataValues.id,
 				body: post.dataValues.body,
-				time: post.dataValues.createdAt,
+				time: moment(posttime).format('LLL'),
 				location: post.dataValues.location,
 				coworker: post.dataValues.coworker,
+				comments: post.dataValues.comments,
+				commenttime: moment(commenttime).format('LLL')
 			}	
 
 		})
@@ -87,10 +91,11 @@ router.post('/post', isAuthenticated, (req,res)=>{
 
 //POST: listens on '/comment' and creates new comment
 router.post('/comment', isAuthenticated, (req,res)=>{
+	console.log(req.body)
 	// Promise.all means 'Do everything in this array before continueing to the then'
 	Promise.all([
 		db.comment.create({
-			body: req.body.comment
+			body: req.body.body
 		}),
 		db.coworker.findOne({
 			where: {
@@ -99,7 +104,7 @@ router.post('/comment', isAuthenticated, (req,res)=>{
 		}),
 		db.post.findOne({
 			where:{
-				id: req.body.postid
+				id: req.body.id
 			}
 		}),
 		]).then(function(promiseResult){
@@ -109,6 +114,10 @@ router.post('/comment', isAuthenticated, (req,res)=>{
 			res.redirect('/home')
 	})
 
+})
+
+router.get('/about', isAuthenticated, (req,res)=>{
+	res.render('about')
 })
 
 // GET that listens on '/signout' and destroys session then redirects to '/'

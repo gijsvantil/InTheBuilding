@@ -8,10 +8,30 @@ body{
 
 h1{
     color:white;
-}   
+} 
 
-a {
-  color: white;
+.author h2 a{
+    color:white;
+}
+
+.content.comment.content.author a{
+    color:white;
+}
+
+h5 a{
+    color:white;
+}
+
+h4{
+    color:white;
+}
+
+h1 a {
+    color:white;
+}
+
+.ui.inverted button a{
+    margin:5px !important;
 }
 
 /*LANDING*/
@@ -22,12 +42,20 @@ a {
     border: none;
     box-shadow: none;
 }
-
-.ui.container {
+.ui.stackable.grid.centered {
+    margin-top: 80px;
     display: block;
     max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
+}
+
+.ui.text.container{
+    margin-top: 4em;
+}
+
+.center.aligned.column{
+    margin-top: 5em;
 }
 
 .left.item{
@@ -41,10 +69,6 @@ a {
 
 .right.item{
     float:right;
-}
-
-.ui.text.container{
-    margin-top:8em;
 }
  
 .videoWrapper {
@@ -62,7 +86,18 @@ a {
     height: 100%;
 }
 
+.ui.inverted.header img{
+    width: 100%;
+    border-radius: 6px;
+}
+
 /*LOGIN & SIGNUP*/
+
+.ui.form{
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 6px;
+}
 
 .column{
     margin-left: auto;
@@ -72,11 +107,13 @@ a {
     min-height: 45%;
 }
 
-input.ui.input.focus{
-    margin: 10px !important;
+input{
+    margin: 10px 0 !important;
 }
 
-button
+button.ui.inverted.button{
+    margin: 0 0;
+}
 
 .column .form-control{
     position: relative;
@@ -89,63 +126,64 @@ button
 
 /*HOME*/
 
+.text p{
+    color:white;
+}
+
 .row{
-    margin-top:40px;
+    margin-top:35px;
 }
 .four.wide.column{
     overflow-y: scroll;
     border: 2px solid white;
     border-radius: 6px;
-    margin: px;
     height:500px;
-    min-width:33%;
+    min-width:30%;
+    padding:0 !important;
+    margin: 16px;
 }
 
 .four.wide.column.double{
-    margin: 1px;
     border:none;
-    min-width:33%;
+    min-width:30%;
+}
+
+.row.four.wide.column.double{
+    padding: 0;
+}
+
+.container.ui.social{
+    height: 245px;
 }
 
 .segment{
     overflow-y: scroll;
     border: 2px solid white;
     border-radius: 6px;
-    height:250px;
-    min-width: 33%;
-}
-
-.logo{
-    position:fixed;
-    margin:0 auto;
+    height:220px;
+    min-width: 30%;
 }
 
 .title{
     border-bottom: 1px solid white;
-}
-
-.segment.one{
-    margin-bottom:50px;
-    height:200px;
-    min-width: 100%;
-}
-
-.segment.two{
-    min-width: 100%;
- 
-}
-
-.logo{
-    position:relative;
-    height: 35px;
-    width: 100%;
-    top: 0;
-    left: 0;
+    height:55px;
 }
 
 .content{
-    top:35px;
-    overflow-y: scroll;
+    min-height:70px;
+   /* position: absolute;*/
+}
+.my-content-class{
+    /*position:absolute;*/
+    top: 55px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    overflow-y:scroll; 
+}
+
+.span.inverted{
+    color:white;
 }
 
 .instagram.icon{
@@ -153,7 +191,6 @@ button
     color: white;
     font-size: 2em;
 }
-
 .instaphoto img{
     width:50%;
 }
@@ -161,4 +198,10 @@ button
     margin-top:10px;
     color: white;
     font-size: 2em;
+}
+
+/*ABOUT*/
+.about{
+    border: 2px solid white;
+    border-radius: 6px;
 }

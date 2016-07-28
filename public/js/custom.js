@@ -1,4 +1,5 @@
 $(document).ready(() =>{
+	console.log ("DOM is ready")
 	$.ajax({
 		type: "GET",
 		dataType: "jsonp",
@@ -7,27 +8,17 @@ $(document).ready(() =>{
 		success: (data) => {
 			console.log(data)
 			for(i = 0; i < data.data.length; i ++){
-				console.log(data.data[i].link)
 				$('.instaphoto').append(("<a href=\"" + data.data[i].link + "\" target=\"_blank\"><img src=\"" + data.data[i].images.thumbnail.url + "\">"))
 				}
-			console.log("WOWZERS")
-			console.log(data.data.length)
 		}
 	});
-
-	$('.my-heading-class').on('click', function() {
-		$(this).next('.my-content-class').slideToggle();
-	});
 	$('.ui.accordion').accordion();
-	console.log ("DOM is ready")
-	$('#helpmeout').click(()=>{
-		$('.postbox').toggle(()=>{
-		})
-	});
-	$('.hello').click((e)=>{
-		console.log('click')
-		$(this).next('.comment').toggle(()=>{
-
-		})
-	})
+	// // $('#helpmeout').click(()=>{
+	// // 	$('.postbox').toggle(()=>{
+	// // 	})
+	// // });
+	// $('#').click(()=>{
+	// 	$('.postbox').toggle(()=>{
+	// 	})
+	// });
 });

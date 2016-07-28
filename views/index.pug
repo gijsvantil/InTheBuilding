@@ -1,23 +1,26 @@
 extends layout
 
 block content
-	div(class="ui inverted vertical masthead center aligned segment")
-		div(class="ui container")
-			div(class=".ui.secondary.inverted.pointing.menu")
-				div(class="left item")
-					h1 IN THE BUILDING
-				div(class="right item")
-					a(href="/login", class="ui inverted button") Log in
-					a(href="/signup", class="ui inverted button") Sign up
-		div(class="ui center aligned")
-			div(class="center aligned column")
-				form(class='ui form', action='/login', method='POST')
-					input(type='text', name='username' class='ui input focus', placeholder='Email address',required)
-					input(type='password', name='password' class='ui input focus', placeholder='Password', required)
-					button(class="ui button inverted", type='submit') Sign in
-				#message
-					if message
-						h1.text-center.error-message #{message}
-	a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=poeha', data-show-count='false') Tweet poeha
-	script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
-
+	.ui.inverted.vertical.masthead.center.aligned.segment
+		.ui.container
+			.ui.secondary.inverted.pointing.menu
+				.left.item
+					h1 
+						a(href="/") IN THE BUILDING
+				.right.item
+					a.ui.inverted.button(href="/login") Log in
+					a.ui.inverted.button(href="/signup") Sign up
+		.ui.center.aligned
+			.center.aligned.column
+				form.ui.form(action='/login', method='POST')
+					.ui.left.icon.input
+						input(type='text', name='username', placeholder='Email address',required)
+						i.user.icon
+					.ui.left.icon.input
+						input(type='password', name='password', placeholder='Password',required)
+						i.key.icon
+					br
+					button.ui.inverted.button(type='submit') Sign in
+		#message
+			if message
+				h1.text-center.error-message=message

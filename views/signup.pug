@@ -1,24 +1,35 @@
 extends layout
 
 block content
-	div(class="ui inverted vertical masthead center aligned segment")
-		div(class="ui container")
-			div(class=".ui.secondary.inverted.pointing.menu")
-				div(class="left item")
+	.ui.inverted.vertical.masthead.center.aligned.segment
+		.ui.container
+			.ui.secondary.inverted.pointing.menu
+				.left.item
 					h1 
 						a(href="/") IN THE BUILDING
-				div(class="right item")
-					a(href="/login", class="ui inverted button") Log in
-					a(href="/signup", class="ui inverted button") Sign up
-		div(class="ui center aligned")
-			div(class="center aligned column")
-						form(class='ui form', action='/signup', method='POST')
-							input(type='text', placeholder='Firstname', name='firstname', class='ui input focus', required)
-							input(type='text', placeholder='Lastname', name='lastname', class='ui input focus', required)
-							input(type='text', placeholder='Email', name='username', class='ui input focus', required)
-							input(type='text', placeholder='Password', name='password', class='ui input focus', required)
-							input(type='text', placeholder='Location', name='location', class='ui input focus', required)
-							button(class='ui button inverted', type='submit') Register
+				.right.item
+					a.ui.inverted.button(href="/login") Log in
+					a.ui.inverted.button(href="/signup") Sign up
+		.ui.center.aligned
+			.center.aligned.column
+						form.ui.form(action='/signup', method='POST')
+							.ui.left.icon.input
+								input(type='text', name='firstname', placeholder='Firstname',required)
+								i.user.icon
+							.ui.left.icon.input
+								input(type='text', name='lastname', placeholder='Lastname',required)
+								i.user.icon
+							.ui.left.icon.input
+								input(type='text', name='username', placeholder='Email address',required)
+								i.mail.icon
+							.ui.left.icon.input
+								input(type='password', name='password', placeholder='Password',required)
+								i.key.icon
+							.ui.left.icon.input
+								input(type='text', name='location', placeholder='Location',required)
+								i.marker.icon
+							br
+							button.ui.button.inverted(type='submit') Register
 		#message
 			if message
 				h1.text-center.error-message #{message}

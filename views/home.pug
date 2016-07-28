@@ -2,61 +2,98 @@ extends layout
 
 block content
 	div(class="ui inverted vertical masthead center aligned segment")
-		div(class="ui container")
-			div(class=".ui.secondary.inverted.pointing.menu")
+		.ui.container
 				div.left.item
 					h1 IN THE BUILDING
 				div.right.item
-					a(href="/#", class="ui inverted button") Account
+					a(href="/about", class="ui inverted button") About
 					a(href="/signout", class="ui inverted button") Log out
-			.div
-			div.ui.middle.aligned.stackable.grid.container
-				.row
-					.four.wide.column
-					.four.wide.column
-						.ui.inverted.accordion
-							.title
-								button.ui.inverted.button HELP ME OUT
-								//- i.dropdown.icon
-								//- |       HELP ME OUT	
-							.content
-								form.ui.form(action='/post', method='POST')
-									.field
-										textarea(type='text', name='body', rows="8", placeholder='I am looking for someone who can help me with ...',required, autofocus)
-									.field.inverted 
-									label Location:
-										input.ui.input(type='location', name='location', placeholder=user.location , required)
-									button.ui.inverted.button(type='submit') Submit
-							.my-content-class
-								each post in posts	
-									.signup-wall
-										p=post.coworker.dataValues.firstname
-										p=post.time
-										p=post.location
-										p=post.body
-										.hello
-											b Leave a comment
-											.comment(style='display:none')
-											form.ui.form(action='/comment', method='POST')
-											.field
-												textarea(type='text', name='body', rows="5", placeholder='Leave a comment',required, autofocus)
-												button.ui.inverted.button(type='submit') Submit
-					.four.wide.column.double
-						.segment.one
-							.logo
-								i.instagram.icon
-							.content
-								.instaphoto
-						.segment.two
-							.logo
-								i.twitter.icon
-								a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=BAmsterdam', data-show-count='false') Tweet #BAmsterdam
-								script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
+		.ui.stackable.grid.centered
+			.row
+				.four.wide.column
+					.ui.inverted.accordion
+						.title.active
+							button.ui.inverted.button 
+								i.calendar.outline.icon 
+								| EVENTS TODAY
+						.content.active
+							h4 09.00 - 12.00 - FINISH APP
+							h4 12.00 - 13.00 - MAKE AWESOME PRESENTATION
+							h4 15.00 - 18.00 - NYCDA SHOWCASE
+						.title
+							button.ui.inverted.button
+								i.time.outline.icon
+								| OPENING HOURS
+						.content
+							h4 Monday: 08.00 - 21.00
+							h4 Dinsday: 08.00 - 21.00
+							h4 Wednesday: 08.00 - 21.00
+							h4 Thursday: 08.00 - 21.00
+							h4 Friday: 08.00 - 21.00
+							h4 Saturday: 08.00 - 21.00
+							h4 Sunday: 08.00 - 21.00
+				.four.wide.column
+					.ui.inverted.accordion
+						.title
+							button.ui.inverted.button HELP ME OUT
+						.content
+							form.ui.form(action='/post', method='POST')
+								.field
+									textarea(type='text', name='body', rows="8", placeholder='I am looking for someone who can help me with ...',required, autofocus)
+								.field.inverted 
+								label Location: 
+									input.ui.input(type='location', name='location', placeholder=user.location , required)
+								button.mini.ui.inverted.button(type='submit') Submit
+						.my-content-class
+							each post in posts.reverse()	
+								.ui.floating.message.inverted
+									a(href=("mailto:" + post.coworker.dataValues.email) class='coworker' data-content="WAZA")
+										h4=post.coworker.dataValues.firstname + ' : '
+									p=post.body
+									p= "Location: " + post.location
+									p= " Time: " + post.time
+								.ui.comments
+									if post.comments.length > 0
+										.title
+											button.ui.inverted.button SHOW COMMENTS
+										.content
+											.comment
+												.content
+													each thing in post.comments
+														h2
+															a(href="mailto:" + post.coworker.dataValues.email).author=thing.coworker.firstname
+														.metadata
+															.span.inverted=thing.commenttime
+														.text
+															p= thing.body
+												form.ui.reply.form(action='/comment',method='POST')
+														.field.inverted
+															input(value=post.id, style='display:none' name='id')
+															input.ui(type='text', name='body', placeholder='Leave a comment',required)
+															button.ui.labeled.inverted.submit.icon.button(type='submit')
+																i.icon.edit
+																|  Add Reply	
+									else
+										h3 no comments
+											.ui.inverted.accordion
+												form.ui.reply.form(action='/comment',method='POST')
+														.field.inverted
+															input(value=post.id, style='display:none' name='id')
+															input.ui(type='text', name='body', placeholder='Leave a comment',required)
+															button.ui.labeled.inverted.submit.icon.button(type='submit')
+																i.icon.edit
+																|  Add Reply
+				.four.wide.column.double
+					.container.ui.social
+						.logo
+							a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=BAmsterdam', data-show-count='false') Tweet #BAmsterdam
+							script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
+						.segment
 							a.twitter-timeline(href='https://twitter.com/search?q=%23BAmsterdam%20OR%20%40B_Amsterdam', data-widget-id='750423133094551552',data-chrome="noheader nofooter transparent",data-limit-tweet="50") Tweets over #BAmsterdam
 							script.
 								!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs")
-        
-
-					p(class="hello")
-						div.comment(style='display:none')
-							textarea(type='text', name='body' class='form-control', rows="5", placeholder='Leave a comment',required, autofocus)
+					.container.ui.social
+						.logo
+							i.instagram.icon
+						.segment
+							.instaphoto
