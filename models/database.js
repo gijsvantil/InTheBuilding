@@ -5,10 +5,11 @@ let db = {
 
 // requiring Sequelize
 const Sequelize = require( 'sequelize' )
+console.log(process.env.MYSQL_USER)
 // establishing database connection
-db.conn = new Sequelize('inthebuilding', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+db.conn = new Sequelize('inthebuilding', process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
 	host: 'localhost',
-	dialect: 'postgres'
+	dialect: 'mysql'
 });
 
 // Models
