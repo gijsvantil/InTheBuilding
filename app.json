@@ -1,0 +1,7 @@
+{
+  "name": "In The Building",
+  "description": "A webapp that connects workers in shared working spaces with eachother",
+  "repository": "https://github.com/gijsvantil/InTheBuilding",
+  "keywords": ["node", "express"],
+  "image": "heroku/nodejs"
+}
