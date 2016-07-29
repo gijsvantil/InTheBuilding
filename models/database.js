@@ -5,13 +5,19 @@ let db = {
 
 // requiring Sequelize
 const Sequelize = require( 'sequelize' )
+console.log(process.env.DATABASE_URL)
 // establishing database connection
-db.conn = new Sequelize('postgres://lqrzxrgxapgqmc:R71W3iKPxR2_hHCdi0JLfECS-1@ec2-54-228-189-127.eu-west-1.compute.amazonaws.com:5432/d4bhlepnvnrpfk?',{
-	// host: 'localhost',
+db.conn = new Sequelize(process.env.DATABASE_URL ,{
 	native:true,
 	port: 5432,
 	dialect: 'postgres',
 });
+
+// Uncomment when connectiong to a local postgres db
+// db.conn = new Sequelize('inthebuilding', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+// 	host: 'localhost',
+// 	dialect: 'postgres'
+// });
 
 // Models
 // mainuser
