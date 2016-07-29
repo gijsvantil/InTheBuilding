@@ -7,9 +7,9 @@ let db = {
 const Sequelize = require( 'sequelize' )
 console.log(process.env.MYSQL_USER)
 // establishing database connection
-db.conn = new Sequelize('inthebuilding', process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
-	host: 'localhost',
-	dialect: 'mysql'
+db.conn = new Sequelize('postgres://lqrzxrgxapgqmc:R71W3iKPxR2_hHCdi0JLfECS-1@ec2-54-228-189-127.eu-west-1.compute.amazonaws.com:5432/d4bhlepnvnrpfk' {
+	// host: 'localhost',
+	dialect: 'postgres'
 });
 
 // Models
