@@ -8,10 +8,11 @@ const Sequelize = require( 'sequelize' )
 const pg = require('pg')
 console.log(process.env.MYSQL_USER)
 // establishing database connection
-db.conn = new Sequelize('postgres://lqrzxrgxapgqmc:R71W3iKPxR2_hHCdi0JLfECS-1@ec2-54-228-189-127.eu-west-1.compute.amazonaws.com:5432/d4bhlepnvnrpfk' {
+db.conn = new Sequelize('postgres://lqrzxrgxapgqmc:R71W3iKPxR2_hHCdi0JLfECS-1@ec2-54-228-189-127.eu-west-1.compute.amazonaws.com:5432/d4bhlepnvnrpfk',{
 	// host: 'localhost',
 	port: 5432,
-	dialect: 'postgres'
+	dialect: 'postgres',
+	native: true,
 });
 
 // Models
