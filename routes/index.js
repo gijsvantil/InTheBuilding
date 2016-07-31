@@ -116,7 +116,7 @@ router.post('/comment', isAuthenticated, (req,res)=>{
 
 })
 
-router.get('/about', isAuthenticated, (req,res)=>{
+router.get('/about', (req,res)=>{
 	res.render('about')
 })
 
